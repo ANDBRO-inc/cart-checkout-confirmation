@@ -52,7 +52,6 @@ class Checkout_Confirm_Loader
 
         $this->actions = array();
         $this->filters = array();
-
     }
 
     /**
@@ -111,7 +110,6 @@ class Checkout_Confirm_Loader
         );
 
         return $hooks;
-
     }
 
     /**
@@ -129,7 +127,5 @@ class Checkout_Confirm_Loader
         foreach ($this->actions as $hook) {
             add_action($hook['hook'], array($hook['component'], $hook['callback']), $hook['priority'], $hook['accepted_args']);
         }
-
     }
-
 }

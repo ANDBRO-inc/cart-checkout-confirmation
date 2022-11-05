@@ -41,7 +41,6 @@ class Checkout_Confirm_i18n
             false,
             dirname(dirname(plugin_basename(__FILE__))) . '/languages/'
         );
-
     }
 
     public function checkout_confirm_heading_text($translated, $text, $domain)
@@ -61,7 +60,7 @@ class Checkout_Confirm_i18n
                 case 'Country / Region':
                     $translated = esc_html__('Country / Region', $domain);
                     break;
-                case 'Street address' :
+                case 'Street address':
                     $translated = esc_html__('Street address', $domain);
                     break;
                 case 'Apartment, suite, unit, etc.':
@@ -83,6 +82,4 @@ class Checkout_Confirm_i18n
         }
         return $translated;
     }
-
-
 }

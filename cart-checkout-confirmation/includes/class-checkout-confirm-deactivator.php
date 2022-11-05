@@ -32,7 +32,5 @@ class Checkout_Confirm_Deactivator
      */
     public static function deactivate()
     {
-
     }
-
 }

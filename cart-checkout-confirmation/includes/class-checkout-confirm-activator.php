@@ -52,5 +52,4 @@ class Checkout_Confirm_Activator
         $license = get_option('license_checkout_confirm', '');
         if (!$license) add_option('license_checkout_confirm', 'Free');
     }
-
 }

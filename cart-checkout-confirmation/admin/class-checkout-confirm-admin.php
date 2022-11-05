@@ -87,7 +87,6 @@ class Checkout_Confirm_Admin
          */
 
         wp_enqueue_style($this->plugin_name, plugin_dir_url(__FILE__) . 'css/checkout-confirm-admin.css', array(), $this->version, 'all');
-
     }
 
     /**
@@ -113,7 +112,6 @@ class Checkout_Confirm_Admin
         wp_enqueue_script('jquery-ui-draggable');
         wp_enqueue_script('jquery-ui-sortable');
         wp_enqueue_script($this->plugin_name . '-script', plugin_dir_url(__FILE__) . 'js/checkout-confirm-admin.js', array('jquery'), $this->version, true);
-
     }
 
     public function add_setting_checkout_confirm_menu()
@@ -163,10 +161,10 @@ class Checkout_Confirm_Admin
     public function checkout_confirm_config_tab($current)
     {
         switch ($current) {
-            case 'fields' :
+            case 'fields':
                 $this->checkout_confirm_tab_fields();
                 break;
-            case 'option' :
+            case 'option':
                 $this->checkout_confirm_tab_option();
                 break;
         }
@@ -194,7 +192,6 @@ class Checkout_Confirm_Admin
         }
 
         require $this->admin_path . 'views' . DIRECTORY_SEPARATOR . 'tabs' . DIRECTORY_SEPARATOR . 'fields.php';
-
     }
 
     public function checkout_confirm_tab_option()
@@ -213,7 +210,7 @@ class Checkout_Confirm_Admin
                 $option = $update_option;
             }
         }
-        if(get_option('license_checkout_confirm', '') == 'Free' || !is_plugin_active('cart-checkout-confirmation-pro/cart-checkout-confirmation-pro.php')){
+        if (get_option('license_checkout_confirm', '') == 'Free' || !is_plugin_active('cart-checkout-confirmation-pro/cart-checkout-confirmation-pro.php')) {
             $option = $_option;
         }
 
@@ -260,13 +257,15 @@ class Checkout_Confirm_Admin
         $content = '<h2>ヘルプとサポート</h2><p>WooCommerce の理解、利用、または拡張にヘルプが必要な場合は、<a href="https://docs.woocommerce.com/documentation/plugins/woocommerce/?utm_source=helptab&amp;utm_medium=product&amp;utm_content=docs&amp;utm_campaign=woocommerceplugin">こちらのドキュメントをお読みください</a>。スニペット、チュートリアルなど、あらゆる種類のリソースを見つけることができます。</p><p>WooCommerce コアに関するサポートが必要な場合は、<a href="https://wordpress.org/support/plugin/woocommerce">コミュニティーフォーラム</a>をご利用ください。WooCommerce.com で販売されているプレミアム拡張機能に関するサポートが必要な場合は、<a href="https://woocommerce.com/my-account/create-a-ticket/?utm_source=helptab&amp;utm_medium=product&amp;utm_content=tickets&amp;utm_campaign=woocommerceplugin">WooCommerce.com でサポートリクエストをオープン</a>してください。</p><p>お問い合わせの前に、システムステータスページをチェックして構成に何らかの問題がないか確認することをおすすめします。</p><p><a href="http://demowordpress.bnksolution.xyz/wp-admin/admin.php?page=wc-status" class="button button-primary">システム状況</a> <a href="https://wordpress.org/support/plugin/woocommerce" class="button">コミュニティフォーラム</a> <a href="https://woocommerce.com/my-account/create-a-ticket/?utm_source=helptab&amp;utm_medium=product&amp;utm_content=tickets&amp;utm_campaign=woocommerceplugin" class="button">WooCommerce.com サポート</a></p>';
         if ($current_screen->id == 'toplevel_page_checkout-confirm' || strpos($current_screen->id, 'page_checkout-confirm-configure-fields') !== false) {
 
-            $current_screen->add_help_tab(array(
+            $current_screen->add_help_tab(
+                array(
                     'id'      => 'checkout-confirm-help-tab',
                     'title'   => esc_html__('Basic Help', 'cart-checkout-confirmation'),
                     'content' => $content
                 )
             );
-            $current_screen->add_help_tab(array(
+            $current_screen->add_help_tab(
+                array(
                     'id'      => 'checkout-confirm-bug-report-tab',
                     'title'   => esc_html__('Found a bug?', 'cart-checkout-confirmation'),
                     'content' => '<h2>バグを発見した場合</h2><p>WooCommerce コア内にバグを見つけた場合は、<a href="https://github.com/woocommerce/woocommerce/issues?state=open">GitHub イシュー</a>経由でチケットを作成できます。 レポートの送信前に、必ず<a href="https://github.com/woocommerce/woocommerce/blob/trunk/.github/CONTRIBUTING.md">参加ガイド</a>をお読みください。 問題解決に役立てるため、できるだけ詳しく説明し、<a href="http://demowordpress.bnksolution.xyz/wp-admin/admin.php?page=wc-status">システムステータスレポート</a>を含めるようにしてください。</p><p><a href="https://github.com/woocommerce/woocommerce/issues/new?assignees=&amp;labels=&amp;template=1-bug-report.yml" class="button button-primary">バグを報告</a> <a href="http://demowordpress.bnksolution.xyz/wp-admin/admin.php?page=wc-status" class="button">システム状況</a></p>'
@@ -279,5 +278,4 @@ class Checkout_Confirm_Admin
     {
         require $this->admin_path . 'views' . DIRECTORY_SEPARATOR . 'pro_version.php';
     }
-
 }

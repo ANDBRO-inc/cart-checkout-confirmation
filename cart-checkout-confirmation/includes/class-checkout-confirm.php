@@ -80,7 +80,6 @@ class Checkout_Confirm
         $this->set_locale();
         $this->define_admin_hooks();
         $this->define_public_hooks();
-
     }
 
     /**
@@ -126,7 +125,6 @@ class Checkout_Confirm
         require_once plugin_dir_path(dirname(__FILE__)) . 'public/class-checkout-confirm-public.php';
 
         $this->loader = new Checkout_Confirm_Loader();
-
     }
 
     /**
@@ -145,7 +143,6 @@ class Checkout_Confirm
 
         $this->loader->add_action('plugins_loaded', $plugin_i18n, 'load_plugin_textdomain');
         $this->loader->add_filter('gettext', $plugin_i18n, 'checkout_confirm_heading_text', 10, 3);
-
     }
 
     /**
@@ -193,7 +190,6 @@ class Checkout_Confirm
         $this->loader->add_action('wp_ajax_nopriv_get_checkout_confirm_html', $plugin_public, 'get_checkout_confirm_html');
         $this->loader->add_action('woocommerce_checkout_process', $plugin_public, 'check_confirm_flag_in_request');
         $this->loader->add_action('woocommerce_thankyou', $plugin_public, 'remove_confirm_flag');
-
     }
 
     /**
@@ -253,5 +249,4 @@ class Checkout_Confirm
 
         return $display_fields;
     }
-
 }
